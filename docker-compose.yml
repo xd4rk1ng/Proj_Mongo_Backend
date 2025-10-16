@@ -1,0 +1,38 @@
+
+version: "3.9"  # Compose file format version
+
+services:
+  # 🟢 MongoDB Service
+  mongo:
+    image: mongo:latest                # Official MongoDB image
+    container_name: mongo_database
+    ports:
+      - "27017:27017"                  # Mongo Port
+    volumes:
+      - ./data:/data/db                # Persist DB data locally
+    environment:                       # For root DB user setup
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: atec123
+    networks:
+      - backend-network
+
+  # 🟣 Node.js Backend Service
+  backend:
+    build: ./backend                   # Builds from local Dockerfile in backend/
+    container_name: node_backend
+    ports:
+      - "3000:3000"                    # Backend port
+    environment:
+      MONGO_URI: mongodb://root:atec123@mongo:27017/ # sets Node connection to DB
+      NODE_ENV: development
+    depends_on:
+      - mongo                          # Ensures Mongo starts first
+    networks:
+      - backend-network
+    volumes:
+      - ./backend:/usr/src/app         # Mount local code for live edits (optional)
+
+# 🌐 Shared Network for Communication
+networks:
+  backend-network:                   # Name of the shared network
+    driver: bridge
