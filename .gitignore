@@ -1,2 +1,13 @@
 # Ignore Mongo DataFiles (annoying)
 /data
+
+# Ignore C# bin and obj files (these are generated on build)
+/backendCSharp/bin
+/backendCSharp/obj
+
+# Visual Studio user settings (workspace, debugging info).
+.vs/ , *.user, *.suo, *.vscode/	User-specific settings and IDE configs.
+
+# Miscellaneous
+*.dll, *.exe	
+*.log
