@@ -8,7 +8,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        string connectionString = "mongodb://root:atec123@127.0.0.1:27017";
+        string connectionString = "mongodb://root:atec123@127.0.0.1:27017/admin";
         string databaseName = "library";
         string collectionName = "students";
 

@@ -1,6 +1,3 @@
-
-version: "3.9"  # Compose file format version
-
 services:
   # 🟢 MongoDB Service
   mongo:
@@ -9,14 +6,15 @@ services:
     ports:
       - "27017:27017"                  # Mongo Port
     volumes:
-      - ./data:/data/db                # Persist DB data locally
+      - mongo_data:/data/db                # Persist DB data locally
     environment:                       # For root DB user setup
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: atec123
     networks:
       - backend-network
 
-
+volumes:
+  mongo_data:
 # 🌐 Shared Network for Communication
 networks:
   backend-network:                   # Name of the shared network
