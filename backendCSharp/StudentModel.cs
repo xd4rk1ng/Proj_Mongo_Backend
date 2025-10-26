@@ -1,6 +1,6 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-
+// Perhaps classes will be derived from a base class, with the basic mongo db adjustments
 
 namespace MongoApi;
 
@@ -21,9 +21,10 @@ public class StudentModel
     public string FirstName { get; set; }
     public string LastName { get; set; }
 
+    // So we print easier
     public override string ToString()
     {
-        
+
         return $"ObjectId: {Id} -- {FirstName} {LastName}";
     }
 
