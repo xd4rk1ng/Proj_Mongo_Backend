@@ -30,9 +30,9 @@ namespace NoSQLWinForms
             listBox1.DisplayMember = "Nome";
 
             // Placeholder list of students
-            listBox1.Items.Add("Estudante 1: João Silva");
-            listBox1.Items.Add("Estudante 2: Maria Oliveira");
-            listBox1.Items.Add("Estudante 3: Pedro Santos");
+            //listBox1.Items.Add("Estudante 1: João Silva");
+            //listBox1.Items.Add("Estudante 2: Maria Oliveira");
+            //listBox1.Items.Add("Estudante 3: Pedro Santos");
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
