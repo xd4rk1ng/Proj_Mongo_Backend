@@ -2,7 +2,6 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 // Perhaps classes will be derived from a base class, with the basic mongo db adjustments
 
-namespace MongoApi;
 
 public class StudentModel
 {

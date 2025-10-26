@@ -18,9 +18,9 @@ class Program
         string collectionName = "students";
 
 
-        IMongoClient client = new MongoClient(connectionString);
-        IMongoDatabase db = client.GetDatabase(databaseName);
-        IMongoCollection<StudentModel> collection = db.GetCollection<StudentModel>(collectionName);
+        var client = new MongoClient(connectionString);
+        var db = client.GetDatabase(databaseName);
+        var collection = db.GetCollection<StudentModel>(collectionName);
 
         var student = new StudentModel { FirstName = "Joao", LastName = "Sharp" };
 
