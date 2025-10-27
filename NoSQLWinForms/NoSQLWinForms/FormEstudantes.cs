@@ -8,26 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NoSQLWinForms.Services;
+using NoSQLWinForms.Models;
 namespace NoSQLWinForms
 {
     public partial class FormEstudantes : Form
     {
-        private readonly IMongoDatabase _db;
-        private readonly IMongoCollection<Estudante> _col;        
 
-        public FormEstudantes(IMongoDatabase db)
+        public FormEstudantes()
         {
             InitializeComponent();
-            _db = db;
-            _col = db.GetCollection<Estudante>("estudantes");
         }
 
-        private void FormEstudantes_Load(object sender, EventArgs e)
+        private async void FormEstudantes_Load(object sender, EventArgs e)
         {
             // Add students from DB to the list box
-            var cursor = _col.Find(_ => true);
-            var results = cursor.ToList();
+            List<Estudante> results = await Service.Library!.Students.GetAllAsync();
 
             // Data sources for all elements
             // List box
@@ -50,8 +46,8 @@ namespace NoSQLWinForms
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            FormInserirEstudante formInserirEstudante = new FormInserirEstudante(_db);
-            formInserirEstudante.ShowDialog();
+            FormInserirEstudante forminserirestudante = new FormInserirEstudante();
+            forminserirestudante.ShowDialog();
             Close();
         }
 

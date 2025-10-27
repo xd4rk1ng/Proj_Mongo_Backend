@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Emprestimo.cs" />
+    <Compile Remove="Estudante.cs" />
+    <Compile Remove="Livro.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="3.5.0" />
   </ItemGroup>
 

@@ -8,19 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NoSQLWinForms.Services;
+using NoSQLWinForms.Models;
 namespace NoSQLWinForms
 {
     public partial class FormInserirEstudante : Form
     {
-        private readonly IMongoDatabase _db;
-        public FormInserirEstudante(IMongoDatabase db)
+        public FormInserirEstudante()
         {
-            _db = db;
             InitializeComponent();
         }
 
-        private void btnInserir_Click(object sender, EventArgs e)
+        private async void btnInserir_Click(object sender, EventArgs e)
         {
             if (txtCurso.Text == "" || txtEmail.Text == "" || txtNome.Text == "")
             {
@@ -29,10 +28,9 @@ namespace NoSQLWinForms
             }
             else {
                 // Inserir estudante na base de dados
-                var collection = _db.GetCollection<Estudante>("estudantes");
-                collection.InsertOne(new Estudante(txtNome.Text, (int)nmIdade.Value, txtCurso.Text, txtEmail.Text));
+                await Service.Library!.Students.CreateAsync(new Estudante { Nome = txtNome.Text, Idade = (int)nmIdade.Value, Curso = txtCurso.Text, Email = txtEmail.Text });
                 Close();
-                    }
+            }
         }
     }
 }

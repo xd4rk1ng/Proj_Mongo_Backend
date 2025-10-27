@@ -13,20 +13,16 @@ namespace NoSQLWinForms
 {
     public partial class FormLivros : Form
     {
-        private readonly IMongoDatabase _db;
-        private readonly IMongoCollection<Livro> _col;
-        public FormLivros(IMongoDatabase db)
+
+        public FormLivros()
         {
             InitializeComponent();
-            _db = db;
-            _col = db.GetCollection<Livro>("livros");
         }
 
-        private void FormLivros_Load(object sender, EventArgs e)
+        private async void FormLivros_Load(object sender, EventArgs e)
         {
             // Add books from DB to the list box
-            var cursor = _col.Find(_ => true);
-            var results = cursor.ToList();
+            var results = await Services.Service.Library!.Books.GetAllAsync();
 
             // Data sources for all elements
             lstLivros.DataSource = results;
@@ -53,7 +49,7 @@ namespace NoSQLWinForms
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            FormInserirLivros formInserirLivros = new FormInserirLivros(_db);
+            FormInserirLivros formInserirLivros = new FormInserirLivros();
             formInserirLivros.ShowDialog();
             Close();
         }

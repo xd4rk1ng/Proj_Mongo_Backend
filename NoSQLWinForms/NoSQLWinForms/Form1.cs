@@ -5,11 +5,9 @@ namespace NoSQLWinForms
 {
     public partial class Form1 : Form
     {
-        private readonly IMongoDatabase _db;
-        public Form1(IMongoDatabase db)
+        public Form1()
         {
             InitializeComponent();
-            _db = db;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -19,19 +17,19 @@ namespace NoSQLWinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormEstudantes formEstudantes = new FormEstudantes(_db);
+            FormEstudantes formEstudantes = new FormEstudantes();
             formEstudantes.ShowDialog();
         }
 
         private void btnFormLivros_Click(object sender, EventArgs e)
         {
-            FormLivros formLivros = new FormLivros(_db);
+            FormLivros formLivros = new FormLivros();
             formLivros.ShowDialog();
         }
 
         private void btnFormEmprestimos_Click(object sender, EventArgs e)
         {
-            FormEmprestimos formEmprestimos = new FormEmprestimos(_db);
+            FormEmprestimos formEmprestimos = new FormEmprestimos();
             formEmprestimos.ShowDialog();
         }
     }

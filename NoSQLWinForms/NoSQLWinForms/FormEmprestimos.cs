@@ -13,7 +13,7 @@ namespace NoSQLWinForms
 {
     public partial class FormEmprestimos : Form
     {
-        public FormEmprestimos(IMongoDatabase db)
+        public FormEmprestimos()
         {
             InitializeComponent();
         }

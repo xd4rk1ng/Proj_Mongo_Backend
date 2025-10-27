@@ -12,9 +12,14 @@ namespace NoSQLWinForms.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = null!;
-        public string EstudanteId { get; set; } = null!;
-        public string LivroId { get; set; } = null!;
-        public DateTime LoanDate { get; set; }
+        public string Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string EstudanteId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string LivroId { get; set; }
+
+        public DateTime DataEmprestimo { get; set; }
+        public DateTime DataDevolucao { get; set; }
+        public bool Devolvido { get; set; }
     }
 }
