@@ -22,5 +22,7 @@ namespace NoSQLWinForms.Models
         public string Editora { get; set; }
         public int NumeroPaginas { get; set; }
         public string Descricao { get; set; }
+
+        public override string ToString() => Titulo;
     }
 }
