@@ -26,7 +26,7 @@ namespace NoSQLWinForms
 
 
             // to get objects associated with id
-            foreach(Emprestimo emp in results)
+            foreach (Emprestimo emp in results)
             {
                 emp.EstudanteObj = await Service.Library.Students.GetByIdAsync(emp.EstudanteId);
                 emp.LivroObj = await Service.Library.Books.GetByIdAsync(emp.LivroId);
@@ -39,7 +39,7 @@ namespace NoSQLWinForms
 
             comboBox2.DataSource = results;
             comboBox2.DisplayMember = "EstudanteObj";
-            
+
             comboBox3.DataSource = results;
             comboBox3.DisplayMember = "LivroObj";
 
@@ -54,6 +54,12 @@ namespace NoSQLWinForms
         {
             FormRealizarEmprestimo formRealizarEmprestimo = new FormRealizarEmprestimo();
             formRealizarEmprestimo.ShowDialog();
+        }
+
+        private async void btnTerminar_Click(object sender, EventArgs e)
+        {
+            var id = ((Emprestimo)listBox1.SelectedItem).Id;
+            await Service.Library.Loans.UpdateReturnDateAsync(id, DateTime.Now);
         }
     }
 }

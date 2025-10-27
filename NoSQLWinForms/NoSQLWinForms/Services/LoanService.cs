@@ -27,5 +27,13 @@ namespace NoSQLWinForms.Services
 
         public async Task CreateAsync(Emprestimo loan) =>
             await _emprestimos.InsertOneAsync(loan);
+
+        public async Task UpdateReturnDateAsync(string loanId, DateTime newReturnDate)
+        {
+            var filter = Builders<Emprestimo>.Filter.Eq(l => l.Id, loanId);
+            var update = Builders<Emprestimo>.Update.Set(l => l.DataDevolucao, newReturnDate).Set(l => l.Devolvido, true);
+
+            await _emprestimos.UpdateOneAsync(filter, update);
+        }
     }
 }

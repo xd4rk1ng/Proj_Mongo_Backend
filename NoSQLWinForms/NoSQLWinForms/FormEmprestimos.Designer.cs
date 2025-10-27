@@ -40,6 +40,7 @@
             comboBox1 = new ComboBox();
             lblId = new Label();
             btnInserir = new Button();
+            btnTerminar = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -146,11 +147,22 @@
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += btnInserir_Click;
             // 
+            // btnTerminar
+            // 
+            btnTerminar.Location = new Point(229, 427);
+            btnTerminar.Name = "btnTerminar";
+            btnTerminar.Size = new Size(190, 38);
+            btnTerminar.TabIndex = 24;
+            btnTerminar.Text = "Terminar Empréstimo";
+            btnTerminar.UseVisualStyleBackColor = true;
+            btnTerminar.Click += btnTerminar_Click;
+            // 
             // FormEmprestimos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(btnTerminar);
             Controls.Add(btnInserir);
             Controls.Add(comboBox5);
             Controls.Add(lblDtDev);
@@ -184,5 +196,6 @@
         private ComboBox comboBox1;
         private Label lblId;
         private Button btnInserir;
+        private Button btnTerminar;
     }
 }
