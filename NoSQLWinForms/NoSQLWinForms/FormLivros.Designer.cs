@@ -46,6 +46,8 @@
             btnInserir = new Button();
             nmPags = new NumericUpDown();
             dtpPubl = new DateTimePicker();
+            btnClean = new Button();
+            btnFilters = new Button();
             ((System.ComponentModel.ISupportInitialize)nmPags).BeginInit();
             SuspendLayout();
             // 
@@ -57,15 +59,16 @@
             lstLivros.Name = "lstLivros";
             lstLivros.Size = new Size(200, 529);
             lstLivros.TabIndex = 2;
+            lstLivros.SelectedIndexChanged += lstLivros_SelectedIndexChanged;
             // 
             // lblDtPublicacao
             // 
             lblDtPublicacao.AutoSize = true;
             lblDtPublicacao.Location = new Point(232, 236);
             lblDtPublicacao.Name = "lblDtPublicacao";
-            lblDtPublicacao.Size = new Size(33, 15);
+            lblDtPublicacao.Size = new Size(152, 15);
             lblDtPublicacao.TabIndex = 21;
-            lblDtPublicacao.Text = "DtPb";
+            lblDtPublicacao.Text = "Data de publicação(Tooltip)";
             // 
             // cmbAutor
             // 
@@ -164,15 +167,15 @@
             // cmbDesc
             // 
             cmbDesc.FormattingEnabled = true;
-            cmbDesc.Location = new Point(232, 423);
+            cmbDesc.Location = new Point(451, 27);
             cmbDesc.Name = "cmbDesc";
-            cmbDesc.Size = new Size(190, 23);
+            cmbDesc.Size = new Size(216, 23);
             cmbDesc.TabIndex = 28;
             // 
             // lblDesc
             // 
             lblDesc.AutoSize = true;
-            lblDesc.Location = new Point(232, 405);
+            lblDesc.Location = new Point(451, 9);
             lblDesc.Name = "lblDesc";
             lblDesc.Size = new Size(58, 15);
             lblDesc.TabIndex = 27;
@@ -202,11 +205,35 @@
             dtpPubl.Size = new Size(200, 23);
             dtpPubl.TabIndex = 31;
             // 
+            // btnClean
+            // 
+            btnClean.BackColor = Color.IndianRed;
+            btnClean.Location = new Point(296, 400);
+            btnClean.Name = "btnClean";
+            btnClean.Size = new Size(56, 53);
+            btnClean.TabIndex = 33;
+            btnClean.Text = "Limpar Filtros";
+            btnClean.UseVisualStyleBackColor = false;
+            btnClean.Click += btnClean_Click;
+            // 
+            // btnFilters
+            // 
+            btnFilters.BackColor = SystemColors.ActiveCaption;
+            btnFilters.Location = new Point(234, 400);
+            btnFilters.Name = "btnFilters";
+            btnFilters.Size = new Size(56, 53);
+            btnFilters.TabIndex = 32;
+            btnFilters.Text = "Aplicar Filtros";
+            btnFilters.UseVisualStyleBackColor = false;
+            btnFilters.Click += btnFilters_Click;
+            // 
             // FormLivros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 561);
+            ClientSize = new Size(679, 561);
+            Controls.Add(btnClean);
+            Controls.Add(btnFilters);
             Controls.Add(dtpPubl);
             Controls.Add(nmPags);
             Controls.Add(btnInserir);
@@ -253,5 +280,7 @@
         private Button btnInserir;
         private NumericUpDown nmPags;
         private DateTimePicker dtpPubl;
+        private Button btnClean;
+        private Button btnFilters;
     }
 }

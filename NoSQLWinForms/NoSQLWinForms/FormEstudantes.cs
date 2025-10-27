@@ -69,16 +69,16 @@ namespace NoSQLWinForms
         private void btnFilters_Click(object sender, EventArgs e)
         {
             // Apply all filters from the combo boxes and numeric up down
-            listBox1.DataSource = results.Where(Estudante =>
+            listBox1.DataSource = results.Where(estudante =>
                 ((cmbId.SelectedItem is Estudante selectedId && selectedId.Id == "ALL") ||
-                 (Estudante.Id == ((Estudante)cmbId.SelectedItem).Id)) &&
+                 (estudante.Id == ((Estudante)cmbId.SelectedItem).Id)) &&
                 ((cmbNome.SelectedItem is Estudante selectedNome && selectedNome.Nome == "ALL") ||
-                 (Estudante.Nome == ((Estudante)cmbNome.SelectedItem).Nome)) &&
+                 (estudante.Nome == ((Estudante)cmbNome.SelectedItem).Nome)) &&
                 ((cmbCurso.SelectedItem is Estudante selectedCurso && selectedCurso.Curso == "ALL") ||
-                 (Estudante.Curso == ((Estudante)cmbCurso.SelectedItem).Curso)) &&
+                 (estudante.Curso == ((Estudante)cmbCurso.SelectedItem).Curso)) &&
                 ((cmbEmail.SelectedItem is Estudante selectedEmail && selectedEmail.Email == "ALL") ||
-                 (Estudante.Email == ((Estudante)cmbEmail.SelectedItem).Email)) &&
-                (nmIdade.Value == 0 || Estudante.Idade == (int)nmIdade.Value)
+                 (estudante.Email == ((Estudante)cmbEmail.SelectedItem).Email)) &&
+                (nmIdade.Value == 0 || estudante.Idade == (int)nmIdade.Value)
             ).ToList();
         }
 
