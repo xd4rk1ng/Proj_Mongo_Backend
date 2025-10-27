@@ -9,7 +9,7 @@ data/
 
 # --- Visual Studio / VS Code ---
 # Ignore Visual Studio temp files, user settings, and workspace
-.vs/
+**/.vs/
 *.user
 *.suo
 *.vcxproj.user
@@ -24,3 +24,8 @@ data/
 *.exe
 *.log
 *.pdb
+
+# ProjectEvaluation / backup / cache
+**/ProjectEvaluation/
+**/DocumentLayout*.json
+**/*.futdcache.v2
