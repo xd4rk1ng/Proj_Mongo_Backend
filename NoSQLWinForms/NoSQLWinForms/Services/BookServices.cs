@@ -25,5 +25,8 @@ namespace NoSQLWinForms.Services
 
         public async Task CreateAsync(Livro book) =>
             await _livros.InsertOneAsync(book);
+        
+        public async Task DeleteAsync(string id) =>
+            await _livros.DeleteOneAsync(l => l.Id == id);
     }
 }

@@ -48,6 +48,7 @@
             dtpPubl = new DateTimePicker();
             btnClean = new Button();
             btnFilters = new Button();
+            btnApagar = new Button();
             ((System.ComponentModel.ISupportInitialize)nmPags).BeginInit();
             SuspendLayout();
             // 
@@ -227,11 +228,22 @@
             btnFilters.UseVisualStyleBackColor = false;
             btnFilters.Click += btnFilters_Click;
             // 
+            // btnApagar
+            // 
+            btnApagar.Location = new Point(451, 471);
+            btnApagar.Name = "btnApagar";
+            btnApagar.Size = new Size(216, 70);
+            btnApagar.TabIndex = 34;
+            btnApagar.Text = "Apagar Livro";
+            btnApagar.UseVisualStyleBackColor = true;
+            btnApagar.Click += btnApagar_Click;
+            // 
             // FormLivros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(679, 561);
+            Controls.Add(btnApagar);
             Controls.Add(btnClean);
             Controls.Add(btnFilters);
             Controls.Add(dtpPubl);
@@ -282,5 +294,6 @@
         private DateTimePicker dtpPubl;
         private Button btnClean;
         private Button btnFilters;
+        private Button btnApagar;
     }
 }

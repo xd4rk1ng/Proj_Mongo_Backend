@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NoSQLWinForms.Services;
 
 namespace NoSQLWinForms
 {
@@ -24,7 +25,7 @@ namespace NoSQLWinForms
         private async void FormLivros_Load(object sender, EventArgs e)
         {
             // Add books from DB to the list box
-            results = await Services.Service.Library!.Books.GetAllAsync();
+            results = await Service.Library!.Books.GetAllAsync();
 
             // Data sources for all elements
             lstLivros.DataSource = results;
@@ -115,6 +116,12 @@ namespace NoSQLWinForms
             cmbDesc.SelectedIndex = 0;
             nmPags.Value = 0;
             dtpPubl.Value = DateTime.Now;
+        }
+
+        private async void btnApagar_Click(object sender, EventArgs e)
+        {
+            var id = ((Livro)lstLivros.SelectedValue).Id;
+            await Service.Library.Books.DeleteAsync(id);
         }
     }
 }
