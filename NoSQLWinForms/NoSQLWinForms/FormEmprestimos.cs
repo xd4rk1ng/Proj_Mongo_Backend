@@ -30,6 +30,11 @@ namespace NoSQLWinForms
             {
                 emp.EstudanteObj = await Service.Library.Students.GetByIdAsync(emp.EstudanteId);
                 emp.LivroObj = await Service.Library.Books.GetByIdAsync(emp.LivroId);
+
+                if(emp.LivroObj == null)
+                {
+                    emp.LivroObj = new Livro { Titulo = "Livro Removido" };
+                }
             }
             listBox1.DataSource = results;
             // listBox1.DisplayMember = 
