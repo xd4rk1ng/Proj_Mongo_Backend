@@ -16,7 +16,6 @@ namespace NoSQLWinForms
     public partial class FormLivros : Form
     {
         List<Livro> results;
-
         public FormLivros()
         {
             InitializeComponent();
@@ -122,6 +121,7 @@ namespace NoSQLWinForms
         {
             var id = ((Livro)lstLivros.SelectedValue).Id;
             await Service.Library.Books.DeleteAsync(id);
+            Close();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace NoSQLWinForms.Models
         public Livro LivroObj { get; set; }
 
 
-        public override string ToString() => $"{LivroObj.Titulo} -- {EstudanteObj.Nome}";
+        public override string ToString() => 
+            $"{LivroObj?.Titulo ?? "Unknown Title"} -- {EstudanteObj?.Nome ?? "Unknown Student"}";
     }
 }
