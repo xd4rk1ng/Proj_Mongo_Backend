@@ -19,6 +19,9 @@ namespace NoSQLWinForms.Models
         public int Idade { get; set; } = 0;
         public string Curso { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+
+        public override string ToString() => Nome;
+
     }
 }
 

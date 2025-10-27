@@ -45,6 +45,7 @@
             btnInserir.TabIndex = 27;
             btnInserir.Text = "Realizar emprestimo";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // lblEst
             // 
@@ -76,9 +77,9 @@
             lblDtEmprestimo.AutoSize = true;
             lblDtEmprestimo.Location = new Point(14, 114);
             lblDtEmprestimo.Name = "lblDtEmprestimo";
-            lblDtEmprestimo.Size = new Size(33, 15);
+            lblDtEmprestimo.Size = new Size(115, 15);
             lblDtEmprestimo.TabIndex = 50;
-            lblDtEmprestimo.Text = "DtPb";
+            lblDtEmprestimo.Text = "Data do Empréstimo";
             // 
             // comboBox2
             // 
@@ -110,6 +111,7 @@
             Controls.Add(btnInserir);
             Name = "FormRealizarEmprestimo";
             Text = "FormRealizarEmprestimo";
+            Load += FormRealizarEmprestimo_Load;
             ResumeLayout(false);
             PerformLayout();
         }
