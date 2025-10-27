@@ -10,6 +10,9 @@ namespace NoSQLWinForms.Services
 {
     public class Service
     {
+        // a singleton is an instance of a class that is unique and the only of its kind
+        // its useful so you can call class members statically (inside the namespace) without having
+        // to duplicate or pass down information everytime theyre accessed
         private static Service? _instance; // singleton
         protected readonly IMongoDatabase _database;
 
@@ -30,6 +33,9 @@ namespace NoSQLWinForms.Services
         }
 
         // Singleton accessor
+        // if there is no instance of Service, will return a new one
+        // if there is already, returns existing one
+        // this way, thanks to the access modifiers, only one instance may exist
         public static Service Library
         {
             get
