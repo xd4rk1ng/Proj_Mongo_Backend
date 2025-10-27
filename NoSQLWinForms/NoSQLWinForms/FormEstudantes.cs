@@ -13,11 +13,14 @@ namespace NoSQLWinForms
 {
     public partial class FormEstudantes : Form
     {
-        private readonly IMongoCollection<Estudante> _col;
+        private readonly IMongoDatabase _db;
+        private readonly IMongoCollection<Estudante> _col;        
+
         public FormEstudantes(IMongoDatabase db)
         {
             InitializeComponent();
-            _col = db.GetCollection<Estudante>("students");
+            _db = db;
+            _col = db.GetCollection<Estudante>("estudantes");
         }
 
         private void FormEstudantes_Load(object sender, EventArgs e)
@@ -26,19 +29,65 @@ namespace NoSQLWinForms
             var cursor = _col.Find(_ => true);
             var results = cursor.ToList();
 
+            // Data sources for all elements
+            // List box
             listBox1.DataSource = results;
             listBox1.DisplayMember = "Nome";
 
-            // Placeholder list of students
-            //listBox1.Items.Add("Estudante 1: João Silva");
-            //listBox1.Items.Add("Estudante 2: Maria Oliveira");
-            //listBox1.Items.Add("Estudante 3: Pedro Santos");
+            // Combo boxes e idade
+            cmbId.DataSource = results;
+            cmbId.DisplayMember = "Id";
+
+            cmbNome.DataSource = results;
+            cmbNome.DisplayMember = "Nome";
+
+            cmbCurso.DataSource = results;
+            cmbCurso.DisplayMember = "Curso";
+
+            cmbEmail.DataSource = results;
+            cmbEmail.DisplayMember = "Email";
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            FormInserirEstudante formInserirEstudante = new FormInserirEstudante();
+            FormInserirEstudante formInserirEstudante = new FormInserirEstudante(_db);
             formInserirEstudante.ShowDialog();
+            Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Alteram-se os valores dos combo boxes conforme o estudante selecionado na list box
+            cmbId.SelectedItem = listBox1.SelectedItem;
+            cmbNome.SelectedItem = listBox1.SelectedItem;
+            cmbCurso.SelectedItem = listBox1.SelectedItem;
+            cmbEmail.SelectedItem = listBox1.SelectedItem;
+            nmIdade.Value = ((Estudante)listBox1.SelectedItem).Idade;
+        }
+
+        private void cmbId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbNome_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nmIdade_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCurso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbEmail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

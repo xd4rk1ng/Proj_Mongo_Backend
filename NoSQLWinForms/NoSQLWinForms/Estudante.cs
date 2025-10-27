@@ -13,8 +13,8 @@ namespace NoSQLWinForms
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        // Propriedades autoimplementadas
         public string Id { get; set; } = string.Empty;
+        // Propriedades autoimplementadas
         public string Nome { get; set; } = string.Empty;
         public int Idade { get; set; } = 0;
         public string Curso { get; set; } = string.Empty;

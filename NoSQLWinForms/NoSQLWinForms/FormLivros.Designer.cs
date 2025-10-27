@@ -28,42 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            comboBox5 = new ComboBox();
+            lstLivros = new ListBox();
             lblDtPublicacao = new Label();
-            comboBox4 = new ComboBox();
+            cmbAutor = new ComboBox();
             lblAutor = new Label();
-            comboBox3 = new ComboBox();
+            cmbSubtitulo = new ComboBox();
             lblSubtitulo = new Label();
-            comboBox2 = new ComboBox();
+            cmbTitulo = new ComboBox();
             lblTitulo = new Label();
-            comboBox1 = new ComboBox();
+            cmbIsbn = new ComboBox();
             lblIsbn = new Label();
-            comboBox6 = new ComboBox();
+            cmbEditora = new ComboBox();
             lblEditora = new Label();
-            comboBox7 = new ComboBox();
             lblPgs = new Label();
-            comboBox8 = new ComboBox();
+            cmbDesc = new ComboBox();
             lblDesc = new Label();
             btnInserir = new Button();
+            nmPags = new NumericUpDown();
+            dtpPubl = new DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)nmPags).BeginInit();
             SuspendLayout();
             // 
-            // listBox1
+            // lstLivros
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(12, 12);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(200, 529);
-            listBox1.TabIndex = 2;
-            // 
-            // comboBox5
-            // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(232, 254);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(190, 23);
-            comboBox5.TabIndex = 22;
+            lstLivros.FormattingEnabled = true;
+            lstLivros.ItemHeight = 15;
+            lstLivros.Location = new Point(12, 12);
+            lstLivros.Name = "lstLivros";
+            lstLivros.Size = new Size(200, 529);
+            lstLivros.TabIndex = 2;
             // 
             // lblDtPublicacao
             // 
@@ -74,13 +67,13 @@
             lblDtPublicacao.TabIndex = 21;
             lblDtPublicacao.Text = "DtPb";
             // 
-            // comboBox4
+            // cmbAutor
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(232, 195);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(190, 23);
-            comboBox4.TabIndex = 20;
+            cmbAutor.FormattingEnabled = true;
+            cmbAutor.Location = new Point(232, 195);
+            cmbAutor.Name = "cmbAutor";
+            cmbAutor.Size = new Size(190, 23);
+            cmbAutor.TabIndex = 20;
             // 
             // lblAutor
             // 
@@ -91,13 +84,13 @@
             lblAutor.TabIndex = 19;
             lblAutor.Text = "Autor";
             // 
-            // comboBox3
+            // cmbSubtitulo
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(232, 138);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(190, 23);
-            comboBox3.TabIndex = 18;
+            cmbSubtitulo.FormattingEnabled = true;
+            cmbSubtitulo.Location = new Point(232, 138);
+            cmbSubtitulo.Name = "cmbSubtitulo";
+            cmbSubtitulo.Size = new Size(190, 23);
+            cmbSubtitulo.TabIndex = 18;
             // 
             // lblSubtitulo
             // 
@@ -108,13 +101,13 @@
             lblSubtitulo.TabIndex = 17;
             lblSubtitulo.Text = "Subtitulo";
             // 
-            // comboBox2
+            // cmbTitulo
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(232, 82);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(190, 23);
-            comboBox2.TabIndex = 16;
+            cmbTitulo.FormattingEnabled = true;
+            cmbTitulo.Location = new Point(232, 82);
+            cmbTitulo.Name = "cmbTitulo";
+            cmbTitulo.Size = new Size(190, 23);
+            cmbTitulo.TabIndex = 16;
             // 
             // lblTitulo
             // 
@@ -125,13 +118,13 @@
             lblTitulo.TabIndex = 15;
             lblTitulo.Text = "Titulo";
             // 
-            // comboBox1
+            // cmbIsbn
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(232, 27);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(190, 23);
-            comboBox1.TabIndex = 14;
+            cmbIsbn.FormattingEnabled = true;
+            cmbIsbn.Location = new Point(232, 27);
+            cmbIsbn.Name = "cmbIsbn";
+            cmbIsbn.Size = new Size(190, 23);
+            cmbIsbn.TabIndex = 14;
             // 
             // lblIsbn
             // 
@@ -142,13 +135,13 @@
             lblIsbn.TabIndex = 13;
             lblIsbn.Text = "Isbn";
             // 
-            // comboBox6
+            // cmbEditora
             // 
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(232, 310);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(190, 23);
-            comboBox6.TabIndex = 24;
+            cmbEditora.FormattingEnabled = true;
+            cmbEditora.Location = new Point(232, 310);
+            cmbEditora.Name = "cmbEditora";
+            cmbEditora.Size = new Size(190, 23);
+            cmbEditora.TabIndex = 24;
             // 
             // lblEditora
             // 
@@ -159,30 +152,22 @@
             lblEditora.TabIndex = 23;
             lblEditora.Text = "Editora";
             // 
-            // comboBox7
-            // 
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(232, 363);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(190, 23);
-            comboBox7.TabIndex = 26;
-            // 
             // lblPgs
             // 
             lblPgs.AutoSize = true;
             lblPgs.Location = new Point(232, 345);
             lblPgs.Name = "lblPgs";
-            lblPgs.Size = new Size(39, 15);
+            lblPgs.Size = new Size(111, 15);
             lblPgs.TabIndex = 25;
-            lblPgs.Text = "nPags";
+            lblPgs.Text = "Numero de paginas";
             // 
-            // comboBox8
+            // cmbDesc
             // 
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(232, 423);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(190, 23);
-            comboBox8.TabIndex = 28;
+            cmbDesc.FormattingEnabled = true;
+            cmbDesc.Location = new Point(232, 423);
+            cmbDesc.Name = "cmbDesc";
+            cmbDesc.Size = new Size(190, 23);
+            cmbDesc.TabIndex = 28;
             // 
             // lblDesc
             // 
@@ -203,55 +188,70 @@
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += btnInserir_Click;
             // 
+            // nmPags
+            // 
+            nmPags.Location = new Point(232, 363);
+            nmPags.Name = "nmPags";
+            nmPags.Size = new Size(120, 23);
+            nmPags.TabIndex = 30;
+            // 
+            // dtpPubl
+            // 
+            dtpPubl.Location = new Point(232, 254);
+            dtpPubl.Name = "dtpPubl";
+            dtpPubl.Size = new Size(200, 23);
+            dtpPubl.TabIndex = 31;
+            // 
             // FormLivros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(dtpPubl);
+            Controls.Add(nmPags);
             Controls.Add(btnInserir);
-            Controls.Add(comboBox8);
+            Controls.Add(cmbDesc);
             Controls.Add(lblDesc);
-            Controls.Add(comboBox7);
             Controls.Add(lblPgs);
-            Controls.Add(comboBox6);
+            Controls.Add(cmbEditora);
             Controls.Add(lblEditora);
-            Controls.Add(comboBox5);
             Controls.Add(lblDtPublicacao);
-            Controls.Add(comboBox4);
+            Controls.Add(cmbAutor);
             Controls.Add(lblAutor);
-            Controls.Add(comboBox3);
+            Controls.Add(cmbSubtitulo);
             Controls.Add(lblSubtitulo);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbTitulo);
             Controls.Add(lblTitulo);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbIsbn);
             Controls.Add(lblIsbn);
-            Controls.Add(listBox1);
+            Controls.Add(lstLivros);
             Name = "FormLivros";
             Text = "FormLivros";
             Load += FormLivros_Load;
+            ((System.ComponentModel.ISupportInitialize)nmPags).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ListBox listBox1;
-        private ComboBox comboBox5;
+        private ListBox lstLivros;
         private Label lblDtPublicacao;
-        private ComboBox comboBox4;
+        private ComboBox cmbAutor;
         private Label lblAutor;
-        private ComboBox comboBox3;
+        private ComboBox cmbSubtitulo;
         private Label lblSubtitulo;
-        private ComboBox comboBox2;
+        private ComboBox cmbTitulo;
         private Label lblTitulo;
-        private ComboBox comboBox1;
+        private ComboBox cmbIsbn;
         private Label lblIsbn;
-        private ComboBox comboBox6;
+        private ComboBox cmbEditora;
         private Label lblEditora;
-        private ComboBox comboBox7;
         private Label lblPgs;
-        private ComboBox comboBox8;
+        private ComboBox cmbDesc;
         private Label lblDesc;
         private Button btnInserir;
+        private NumericUpDown nmPags;
+        private DateTimePicker dtpPubl;
     }
 }

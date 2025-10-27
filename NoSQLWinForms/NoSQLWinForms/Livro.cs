@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,10 @@ namespace NoSQLWinForms
 {
     public class Livro
     {
-       // atributos
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        // atributos
+        public string Id { get; set; }
         private string _isbn;
         private string _titulo;
         private string _subTitulo;

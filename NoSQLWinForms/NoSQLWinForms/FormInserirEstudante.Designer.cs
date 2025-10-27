@@ -32,12 +32,12 @@
             lblCurso = new Label();
             lblIdade = new Label();
             lblNome = new Label();
-            textBox1 = new TextBox();
-            numericUpDown1 = new NumericUpDown();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtNome = new TextBox();
+            nmIdade = new NumericUpDown();
+            txtCurso = new TextBox();
+            txtEmail = new TextBox();
             btnInserir = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmIdade).BeginInit();
             SuspendLayout();
             // 
             // lblEmail
@@ -76,33 +76,35 @@
             lblNome.TabIndex = 15;
             lblNome.Text = "Nome";
             // 
-            // textBox1
+            // txtNome
             // 
-            textBox1.Location = new Point(12, 34);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(287, 23);
-            textBox1.TabIndex = 22;
+            txtNome.Location = new Point(12, 34);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(287, 23);
+            txtNome.TabIndex = 22;
             // 
-            // numericUpDown1
+            // nmIdade
             // 
-            numericUpDown1.Location = new Point(12, 84);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(54, 23);
-            numericUpDown1.TabIndex = 23;
+            nmIdade.Location = new Point(12, 84);
+            nmIdade.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nmIdade.Name = "nmIdade";
+            nmIdade.Size = new Size(54, 23);
+            nmIdade.TabIndex = 23;
+            nmIdade.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // textBox2
+            // txtCurso
             // 
-            textBox2.Location = new Point(12, 139);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(287, 23);
-            textBox2.TabIndex = 24;
+            txtCurso.Location = new Point(12, 139);
+            txtCurso.Name = "txtCurso";
+            txtCurso.Size = new Size(287, 23);
+            txtCurso.TabIndex = 24;
             // 
-            // textBox3
+            // txtEmail
             // 
-            textBox3.Location = new Point(12, 205);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(287, 23);
-            textBox3.TabIndex = 25;
+            txtEmail.Location = new Point(12, 205);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(287, 23);
+            txtEmail.TabIndex = 25;
             // 
             // btnInserir
             // 
@@ -112,6 +114,7 @@
             btnInserir.TabIndex = 26;
             btnInserir.Text = "Inserir estudante";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // FormInserirEstudante
             // 
@@ -119,17 +122,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(314, 321);
             Controls.Add(btnInserir);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(numericUpDown1);
-            Controls.Add(textBox1);
+            Controls.Add(txtEmail);
+            Controls.Add(txtCurso);
+            Controls.Add(nmIdade);
+            Controls.Add(txtNome);
             Controls.Add(lblEmail);
             Controls.Add(lblCurso);
             Controls.Add(lblIdade);
             Controls.Add(lblNome);
             Name = "FormInserirEstudante";
             Text = "FormInserirEstudante";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmIdade).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,10 +143,10 @@
         private Label lblCurso;
         private Label lblIdade;
         private Label lblNome;
-        private TextBox textBox1;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtNome;
+        private NumericUpDown nmIdade;
+        private TextBox txtCurso;
+        private TextBox txtEmail;
         private Button btnInserir;
     }
 }

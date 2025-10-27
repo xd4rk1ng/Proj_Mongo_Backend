@@ -11,7 +11,7 @@ class Program
         // CONFIG HERE
         const string serverUser = "root";
         const string serverPasswd = "atec123";
-        const string serverIp = "192.168.109.129";
+        const string serverIp = "192.168.47.131"; // Insira o IP da sua VM aqui
         string connectionString = $"mongodb://{serverUser}:{serverPasswd}@{serverIp}:27017/admin";
         
         // TEST DB AND COLL NAMES, SUBJECT TO CHANGE

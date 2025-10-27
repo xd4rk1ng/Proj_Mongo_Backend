@@ -30,16 +30,17 @@
         {
             listBox1 = new ListBox();
             lblId = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            cmbId = new ComboBox();
+            cmbNome = new ComboBox();
             lblNome = new Label();
-            comboBox3 = new ComboBox();
             lblIdade = new Label();
-            comboBox4 = new ComboBox();
+            cmbCurso = new ComboBox();
             lblCurso = new Label();
-            comboBox5 = new ComboBox();
+            cmbEmail = new ComboBox();
             lblEmail = new Label();
             btnInserir = new Button();
+            nmIdade = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nmIdade).BeginInit();
             SuspendLayout();
             // 
             // listBox1
@@ -50,6 +51,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(200, 529);
             listBox1.TabIndex = 1;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // lblId
             // 
@@ -60,21 +62,23 @@
             lblId.TabIndex = 3;
             lblId.Text = "Id";
             // 
-            // comboBox1
+            // cmbId
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(232, 27);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(190, 23);
-            comboBox1.TabIndex = 4;
+            cmbId.FormattingEnabled = true;
+            cmbId.Location = new Point(232, 27);
+            cmbId.Name = "cmbId";
+            cmbId.Size = new Size(190, 23);
+            cmbId.TabIndex = 4;
+            cmbId.SelectedIndexChanged += cmbId_SelectedIndexChanged;
             // 
-            // comboBox2
+            // cmbNome
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(232, 82);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(190, 23);
-            comboBox2.TabIndex = 6;
+            cmbNome.FormattingEnabled = true;
+            cmbNome.Location = new Point(232, 82);
+            cmbNome.Name = "cmbNome";
+            cmbNome.Size = new Size(190, 23);
+            cmbNome.TabIndex = 6;
+            cmbNome.SelectedIndexChanged += cmbNome_SelectedIndexChanged;
             // 
             // lblNome
             // 
@@ -85,14 +89,6 @@
             lblNome.TabIndex = 5;
             lblNome.Text = "Nome";
             // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(232, 138);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(190, 23);
-            comboBox3.TabIndex = 8;
-            // 
             // lblIdade
             // 
             lblIdade.AutoSize = true;
@@ -102,13 +98,14 @@
             lblIdade.TabIndex = 7;
             lblIdade.Text = "Idade";
             // 
-            // comboBox4
+            // cmbCurso
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(232, 200);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(190, 23);
-            comboBox4.TabIndex = 10;
+            cmbCurso.FormattingEnabled = true;
+            cmbCurso.Location = new Point(232, 200);
+            cmbCurso.Name = "cmbCurso";
+            cmbCurso.Size = new Size(190, 23);
+            cmbCurso.TabIndex = 10;
+            cmbCurso.SelectedIndexChanged += cmbCurso_SelectedIndexChanged;
             // 
             // lblCurso
             // 
@@ -119,13 +116,14 @@
             lblCurso.TabIndex = 9;
             lblCurso.Text = "Curso";
             // 
-            // comboBox5
+            // cmbEmail
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(232, 259);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(190, 23);
-            comboBox5.TabIndex = 12;
+            cmbEmail.FormattingEnabled = true;
+            cmbEmail.Location = new Point(232, 259);
+            cmbEmail.Name = "cmbEmail";
+            cmbEmail.Size = new Size(190, 23);
+            cmbEmail.TabIndex = 12;
+            cmbEmail.SelectedIndexChanged += cmbEmail_SelectedIndexChanged;
             // 
             // lblEmail
             // 
@@ -146,26 +144,35 @@
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += btnInserir_Click;
             // 
+            // nmIdade
+            // 
+            nmIdade.Location = new Point(232, 138);
+            nmIdade.Name = "nmIdade";
+            nmIdade.Size = new Size(68, 23);
+            nmIdade.TabIndex = 14;
+            nmIdade.ValueChanged += nmIdade_ValueChanged;
+            // 
             // FormEstudantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(nmIdade);
             Controls.Add(btnInserir);
-            Controls.Add(comboBox5);
+            Controls.Add(cmbEmail);
             Controls.Add(lblEmail);
-            Controls.Add(comboBox4);
+            Controls.Add(cmbCurso);
             Controls.Add(lblCurso);
-            Controls.Add(comboBox3);
             Controls.Add(lblIdade);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbNome);
             Controls.Add(lblNome);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbId);
             Controls.Add(lblId);
             Controls.Add(listBox1);
             Name = "FormEstudantes";
             Text = "FormEstudantes";
             Load += FormEstudantes_Load;
+            ((System.ComponentModel.ISupportInitialize)nmIdade).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,15 +181,15 @@
 
         private ListBox listBox1;
         private Label lblId;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox cmbId;
+        private ComboBox cmbNome;
         private Label lblNome;
-        private ComboBox comboBox3;
         private Label lblIdade;
-        private ComboBox comboBox4;
+        private ComboBox cmbCurso;
         private Label lblCurso;
-        private ComboBox comboBox5;
+        private ComboBox cmbEmail;
         private Label lblEmail;
         private Button btnInserir;
+        private NumericUpDown nmIdade;
     }
 }

@@ -36,16 +36,16 @@
             lblSubtitulo = new Label();
             lblTitulo = new Label();
             lblIsbn = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox5 = new TextBox();
-            numericUpDown1 = new NumericUpDown();
-            textBox6 = new TextBox();
+            txtIsbn = new TextBox();
+            txtTitulo = new TextBox();
+            txtSubtitulo = new TextBox();
+            txtAutor = new TextBox();
+            dtpPub = new DateTimePicker();
+            txtEditora = new TextBox();
+            nmPags = new NumericUpDown();
+            txtDesc = new TextBox();
             btnInserir = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmPags).BeginInit();
             SuspendLayout();
             // 
             // lblDesc
@@ -62,9 +62,9 @@
             lblPgs.AutoSize = true;
             lblPgs.Location = new Point(12, 346);
             lblPgs.Name = "lblPgs";
-            lblPgs.Size = new Size(39, 15);
+            lblPgs.Size = new Size(111, 15);
             lblPgs.TabIndex = 41;
-            lblPgs.Text = "nPags";
+            lblPgs.Text = "Numero de paginas";
             // 
             // lblEditora
             // 
@@ -120,62 +120,64 @@
             lblIsbn.TabIndex = 29;
             lblIsbn.Text = "Isbn";
             // 
-            // textBox1
+            // txtIsbn
             // 
-            textBox1.Location = new Point(12, 28);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(286, 23);
-            textBox1.TabIndex = 45;
+            txtIsbn.Location = new Point(12, 28);
+            txtIsbn.Name = "txtIsbn";
+            txtIsbn.Size = new Size(286, 23);
+            txtIsbn.TabIndex = 45;
             // 
-            // textBox2
+            // txtTitulo
             // 
-            textBox2.Location = new Point(12, 83);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(286, 23);
-            textBox2.TabIndex = 46;
+            txtTitulo.Location = new Point(12, 83);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.Size = new Size(286, 23);
+            txtTitulo.TabIndex = 46;
             // 
-            // textBox3
+            // txtSubtitulo
             // 
-            textBox3.Location = new Point(12, 139);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(286, 23);
-            textBox3.TabIndex = 47;
+            txtSubtitulo.Location = new Point(12, 139);
+            txtSubtitulo.Name = "txtSubtitulo";
+            txtSubtitulo.Size = new Size(286, 23);
+            txtSubtitulo.TabIndex = 47;
             // 
-            // textBox4
+            // txtAutor
             // 
-            textBox4.Location = new Point(12, 196);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(286, 23);
-            textBox4.TabIndex = 48;
+            txtAutor.Location = new Point(12, 196);
+            txtAutor.Name = "txtAutor";
+            txtAutor.Size = new Size(286, 23);
+            txtAutor.TabIndex = 48;
             // 
-            // dateTimePicker1
+            // dtpPub
             // 
-            dateTimePicker1.Location = new Point(12, 255);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(286, 23);
-            dateTimePicker1.TabIndex = 49;
+            dtpPub.Location = new Point(12, 255);
+            dtpPub.Name = "dtpPub";
+            dtpPub.Size = new Size(286, 23);
+            dtpPub.TabIndex = 49;
             // 
-            // textBox5
+            // txtEditora
             // 
-            textBox5.Location = new Point(12, 311);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(286, 23);
-            textBox5.TabIndex = 50;
+            txtEditora.Location = new Point(12, 311);
+            txtEditora.Name = "txtEditora";
+            txtEditora.Size = new Size(286, 23);
+            txtEditora.TabIndex = 50;
             // 
-            // numericUpDown1
+            // nmPags
             // 
-            numericUpDown1.Location = new Point(12, 364);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(44, 23);
-            numericUpDown1.TabIndex = 51;
+            nmPags.Location = new Point(12, 364);
+            nmPags.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nmPags.Name = "nmPags";
+            nmPags.Size = new Size(44, 23);
+            nmPags.TabIndex = 51;
+            nmPags.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // textBox6
+            // txtDesc
             // 
-            textBox6.Location = new Point(12, 424);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(286, 101);
-            textBox6.TabIndex = 52;
+            txtDesc.Location = new Point(12, 424);
+            txtDesc.Multiline = true;
+            txtDesc.Name = "txtDesc";
+            txtDesc.Size = new Size(286, 101);
+            txtDesc.TabIndex = 52;
             // 
             // btnInserir
             // 
@@ -185,6 +187,7 @@
             btnInserir.TabIndex = 53;
             btnInserir.Text = "Inserir livro";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // FormInserirLivros
             // 
@@ -192,14 +195,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(314, 602);
             Controls.Add(btnInserir);
-            Controls.Add(textBox6);
-            Controls.Add(numericUpDown1);
-            Controls.Add(textBox5);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtDesc);
+            Controls.Add(nmPags);
+            Controls.Add(txtEditora);
+            Controls.Add(dtpPub);
+            Controls.Add(txtAutor);
+            Controls.Add(txtSubtitulo);
+            Controls.Add(txtTitulo);
+            Controls.Add(txtIsbn);
             Controls.Add(lblDesc);
             Controls.Add(lblPgs);
             Controls.Add(lblEditora);
@@ -210,7 +213,8 @@
             Controls.Add(lblIsbn);
             Name = "FormInserirLivros";
             Text = "FormInserirLivros";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            Load += FormInserirLivros_Load;
+            ((System.ComponentModel.ISupportInitialize)nmPags).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,14 +229,14 @@
         private Label lblSubtitulo;
         private Label lblTitulo;
         private Label lblIsbn;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox5;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox6;
+        private TextBox txtIsbn;
+        private TextBox txtTitulo;
+        private TextBox txtSubtitulo;
+        private TextBox txtAutor;
+        private DateTimePicker dtpPub;
+        private TextBox txtEditora;
+        private NumericUpDown nmPags;
+        private TextBox txtDesc;
         private Button btnInserir;
     }
 }
