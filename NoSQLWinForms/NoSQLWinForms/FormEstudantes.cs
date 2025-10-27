@@ -53,7 +53,7 @@ namespace NoSQLWinForms
             Close();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Alteram-se os valores dos combo boxes conforme o estudante selecionado na list box
             cmbId.SelectedItem = listBox1.SelectedItem;
@@ -64,6 +64,25 @@ namespace NoSQLWinForms
                 nmIdade.Value = ((Estudante)listBox1.SelectedItem).Idade;
             else
                 nmIdade.Value = 0;
+
+            if (listBox1.SelectedItem != null)
+            {
+                var id = ((Estudante)listBox1.SelectedItem).Id;
+                List<Emprestimo> results = await Service.Library.Loans.GetPendingByStudentAsync(id);
+
+                foreach (Emprestimo emp in results)
+                {
+                    emp.EstudanteObj = (Estudante)listBox1.SelectedItem;
+                    emp.LivroObj = await Service.Library.Books.GetByIdAsync(emp.LivroId);
+
+                    if (emp.LivroObj == null)
+                        emp.LivroObj = new Livro { Titulo = "Livro removido" };
+                }
+
+                listBox2.DataSource = results;
+                listBox2.DisplayMember = "Titulo";
+
+            }
         }
 
         private void btnFilters_Click(object sender, EventArgs e)
@@ -92,6 +111,11 @@ namespace NoSQLWinForms
             cmbCurso.SelectedIndex = 0;
             cmbEmail.SelectedIndex = 0;
             nmIdade.Value = 0;
+        }
+
+        private async void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

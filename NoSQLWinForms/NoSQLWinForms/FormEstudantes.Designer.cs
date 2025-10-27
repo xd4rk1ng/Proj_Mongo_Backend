@@ -42,6 +42,8 @@
             nmIdade = new NumericUpDown();
             btnFilters = new Button();
             btnClean = new Button();
+            listBox2 = new ListBox();
+            lblEmprestimos = new Label();
             ((System.ComponentModel.ISupportInitialize)nmIdade).BeginInit();
             SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             cmbId.Location = new Point(232, 27);
             cmbId.Name = "cmbId";
             cmbId.Size = new Size(190, 23);
-            cmbId.TabIndex = 4;            
+            cmbId.TabIndex = 4;
             // 
             // cmbNome
             // 
@@ -171,11 +173,32 @@
             btnClean.UseVisualStyleBackColor = false;
             btnClean.Click += btnClean_Click;
             // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 15;
+            listBox2.Location = new Point(232, 371);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(190, 94);
+            listBox2.TabIndex = 17;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
+            // 
+            // lblEmprestimos
+            // 
+            lblEmprestimos.AutoSize = true;
+            lblEmprestimos.Location = new Point(232, 353);
+            lblEmprestimos.Name = "lblEmprestimos";
+            lblEmprestimos.Size = new Size(76, 15);
+            lblEmprestimos.TabIndex = 18;
+            lblEmprestimos.Text = "Por devolver:";
+            // 
             // FormEstudantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(lblEmprestimos);
+            Controls.Add(listBox2);
             Controls.Add(btnClean);
             Controls.Add(btnFilters);
             Controls.Add(nmIdade);
@@ -214,5 +237,7 @@
         private NumericUpDown nmIdade;
         private Button btnFilters;
         private Button btnClean;
+        private ListBox listBox2;
+        private Label lblEmprestimos;
     }
 }
