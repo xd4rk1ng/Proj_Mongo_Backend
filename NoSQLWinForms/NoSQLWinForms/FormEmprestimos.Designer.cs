@@ -40,6 +40,8 @@
             comboBox1 = new ComboBox();
             lblId = new Label();
             btnInserir = new Button();
+            btnClean = new Button();
+            btnFilters = new Button();
             btnTerminar = new Button();
             SuspendLayout();
             // 
@@ -51,6 +53,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(200, 529);
             listBox1.TabIndex = 3;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // comboBox5
             // 
@@ -147,6 +150,28 @@
             btnInserir.UseVisualStyleBackColor = true;
             btnInserir.Click += btnInserir_Click;
             // 
+            // btnClean
+            // 
+            btnClean.BackColor = Color.IndianRed;
+            btnClean.Location = new Point(292, 293);
+            btnClean.Name = "btnClean";
+            btnClean.Size = new Size(56, 53);
+            btnClean.TabIndex = 25;
+            btnClean.Text = "Limpar Filtros";
+            btnClean.UseVisualStyleBackColor = false;
+            btnClean.Click += btnClean_Click;
+            // 
+            // btnFilters
+            // 
+            btnFilters.BackColor = SystemColors.ActiveCaption;
+            btnFilters.Location = new Point(230, 293);
+            btnFilters.Name = "btnFilters";
+            btnFilters.Size = new Size(56, 53);
+            btnFilters.TabIndex = 24;
+            btnFilters.Text = "Aplicar Filtros";
+            btnFilters.UseVisualStyleBackColor = false;
+            btnFilters.Click += btnFilters_Click;
+            // 
             // btnTerminar
             // 
             btnTerminar.Location = new Point(229, 427);
@@ -162,6 +187,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(btnClean);
+            Controls.Add(btnFilters);
             Controls.Add(btnTerminar);
             Controls.Add(btnInserir);
             Controls.Add(comboBox5);
@@ -196,6 +223,8 @@
         private ComboBox comboBox1;
         private Label lblId;
         private Button btnInserir;
+        private Button btnClean;
+        private Button btnFilters;
         private Button btnTerminar;
     }
 }

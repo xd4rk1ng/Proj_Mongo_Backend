@@ -10,12 +10,7 @@ namespace NoSQLWinForms
         [STAThread]
         static void Main()
         {            
-            ApplicationConfiguration.Initialize();
-            // CONFIG HERE
-            //const string serverUser = "root";
-            //const string serverPasswd = "atec123";
-            //const string serverIp = "192.168.109.129";
-            //string connectionString = $"mongodb://{serverUser}:{serverPasswd}@{serverIp}:27017/admin";
+            ApplicationConfiguration.Initialize();            
             Application.Run(new Form1());
         }
     }
