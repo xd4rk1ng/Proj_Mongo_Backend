@@ -40,6 +40,8 @@
             lblEmail = new Label();
             btnInserir = new Button();
             nmIdade = new NumericUpDown();
+            btnFilters = new Button();
+            btnClean = new Button();
             ((System.ComponentModel.ISupportInitialize)nmIdade).BeginInit();
             SuspendLayout();
             // 
@@ -68,8 +70,7 @@
             cmbId.Location = new Point(232, 27);
             cmbId.Name = "cmbId";
             cmbId.Size = new Size(190, 23);
-            cmbId.TabIndex = 4;
-            cmbId.SelectedIndexChanged += cmbId_SelectedIndexChanged;
+            cmbId.TabIndex = 4;            
             // 
             // cmbNome
             // 
@@ -78,7 +79,6 @@
             cmbNome.Name = "cmbNome";
             cmbNome.Size = new Size(190, 23);
             cmbNome.TabIndex = 6;
-            cmbNome.SelectedIndexChanged += cmbNome_SelectedIndexChanged;
             // 
             // lblNome
             // 
@@ -105,7 +105,6 @@
             cmbCurso.Name = "cmbCurso";
             cmbCurso.Size = new Size(190, 23);
             cmbCurso.TabIndex = 10;
-            cmbCurso.SelectedIndexChanged += cmbCurso_SelectedIndexChanged;
             // 
             // lblCurso
             // 
@@ -123,7 +122,6 @@
             cmbEmail.Name = "cmbEmail";
             cmbEmail.Size = new Size(190, 23);
             cmbEmail.TabIndex = 12;
-            cmbEmail.SelectedIndexChanged += cmbEmail_SelectedIndexChanged;
             // 
             // lblEmail
             // 
@@ -150,13 +148,36 @@
             nmIdade.Name = "nmIdade";
             nmIdade.Size = new Size(68, 23);
             nmIdade.TabIndex = 14;
-            nmIdade.ValueChanged += nmIdade_ValueChanged;
+            // 
+            // btnFilters
+            // 
+            btnFilters.BackColor = SystemColors.ActiveCaption;
+            btnFilters.Location = new Point(232, 288);
+            btnFilters.Name = "btnFilters";
+            btnFilters.Size = new Size(56, 53);
+            btnFilters.TabIndex = 15;
+            btnFilters.Text = "Aplicar Filtros";
+            btnFilters.UseVisualStyleBackColor = false;
+            btnFilters.Click += btnFilters_Click;
+            // 
+            // btnClean
+            // 
+            btnClean.BackColor = Color.IndianRed;
+            btnClean.Location = new Point(294, 288);
+            btnClean.Name = "btnClean";
+            btnClean.Size = new Size(56, 53);
+            btnClean.TabIndex = 16;
+            btnClean.Text = "Limpar Filtros";
+            btnClean.UseVisualStyleBackColor = false;
+            btnClean.Click += btnClean_Click;
             // 
             // FormEstudantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(434, 561);
+            Controls.Add(btnClean);
+            Controls.Add(btnFilters);
             Controls.Add(nmIdade);
             Controls.Add(btnInserir);
             Controls.Add(cmbEmail);
@@ -191,5 +212,7 @@
         private Label lblEmail;
         private Button btnInserir;
         private NumericUpDown nmIdade;
+        private Button btnFilters;
+        private Button btnClean;
     }
 }

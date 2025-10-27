@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using NoSQLWinForms.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace NoSQLWinForms
 {
     public partial class FormLivros : Form
     {
+        List<Livro> results;
 
         public FormLivros()
         {
@@ -22,7 +24,7 @@ namespace NoSQLWinForms
         private async void FormLivros_Load(object sender, EventArgs e)
         {
             // Add books from DB to the list box
-            var results = await Services.Service.Library!.Books.GetAllAsync();
+            results = await Services.Service.Library!.Books.GetAllAsync();
 
             // Data sources for all elements
             lstLivros.DataSource = results;

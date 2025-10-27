@@ -20,7 +20,7 @@ namespace NoSQLWinForms.Services
         // Protected constructor so only this class can instantiate it
         protected Service()
         {
-            var client = new MongoClient("mongodb://root:atec123@192.168.109.129:27017/admin");
+            var client = new MongoClient("mongodb://root:atec123@192.168.47.131:27017/admin");
             _database = client.GetDatabase("library");
 
             // Pass the shared _database to each collection service

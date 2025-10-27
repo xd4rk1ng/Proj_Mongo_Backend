@@ -14,7 +14,7 @@ namespace NoSQLWinForms
 {
     public partial class FormEstudantes : Form
     {
-
+        List<Estudante> results;
         public FormEstudantes()
         {
             InitializeComponent();
@@ -22,25 +22,27 @@ namespace NoSQLWinForms
 
         private async void FormEstudantes_Load(object sender, EventArgs e)
         {
+
             // Add students from DB to the list box
-            List<Estudante> results = await Service.Library!.Students.GetAllAsync();
+            results = await Service.Library!.Students.GetAllAsync();
 
             // Data sources for all elements
             // List box
             listBox1.DataSource = results;
             listBox1.DisplayMember = "Nome";
+            listBox1.SelectedIndex = -1; // No selection at start
 
             // Combo boxes e idade
-            cmbId.DataSource = results;
+            cmbId.DataSource = new List<Estudante> { new Estudante { Id = "ALL", Nome = "ALL", Curso = "ALL", Email = "ALL", Idade = 0 } }.Concat(results.DistinctBy(e => e.Id)).ToList(); // Para ignorar o filtro
             cmbId.DisplayMember = "Id";
 
-            cmbNome.DataSource = results;
+            cmbNome.DataSource = new List<Estudante> { new Estudante { Id = "ALL", Nome = "ALL", Curso = "ALL", Email = "ALL", Idade = 0 } }.Concat(results.DistinctBy(e => e.Nome)).ToList();
             cmbNome.DisplayMember = "Nome";
 
-            cmbCurso.DataSource = results;
+            cmbCurso.DataSource = new List<Estudante> { new Estudante { Id = "ALL", Nome = "ALL", Curso = "ALL", Email = "ALL", Idade = 0 } }.Concat(results.DistinctBy(e => e.Curso)).ToList();
             cmbCurso.DisplayMember = "Curso";
 
-            cmbEmail.DataSource = results;
+            cmbEmail.DataSource = new List<Estudante> { new Estudante { Id = "ALL", Nome = "ALL", Curso = "ALL", Email = "ALL", Idade = 0 } }.Concat(results.DistinctBy(e => e.Email)).ToList();
             cmbEmail.DisplayMember = "Email";
         }
 
@@ -58,32 +60,38 @@ namespace NoSQLWinForms
             cmbNome.SelectedItem = listBox1.SelectedItem;
             cmbCurso.SelectedItem = listBox1.SelectedItem;
             cmbEmail.SelectedItem = listBox1.SelectedItem;
-            nmIdade.Value = ((Estudante)listBox1.SelectedItem).Idade;
+            if (listBox1.SelectedItem != null)
+                nmIdade.Value = ((Estudante)listBox1.SelectedItem).Idade;
+            else
+                nmIdade.Value = 0;
         }
 
-        private void cmbId_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnFilters_Click(object sender, EventArgs e)
         {
-
+            // Apply all filters from the combo boxes and numeric up down
+            listBox1.DataSource = results.Where(Estudante =>
+                ((cmbId.SelectedItem is Estudante selectedId && selectedId.Id == "ALL") ||
+                 (Estudante.Id == ((Estudante)cmbId.SelectedItem).Id)) &&
+                ((cmbNome.SelectedItem is Estudante selectedNome && selectedNome.Nome == "ALL") ||
+                 (Estudante.Nome == ((Estudante)cmbNome.SelectedItem).Nome)) &&
+                ((cmbCurso.SelectedItem is Estudante selectedCurso && selectedCurso.Curso == "ALL") ||
+                 (Estudante.Curso == ((Estudante)cmbCurso.SelectedItem).Curso)) &&
+                ((cmbEmail.SelectedItem is Estudante selectedEmail && selectedEmail.Email == "ALL") ||
+                 (Estudante.Email == ((Estudante)cmbEmail.SelectedItem).Email)) &&
+                (nmIdade.Value == 0 || Estudante.Idade == (int)nmIdade.Value)
+            ).ToList();
         }
 
-        private void cmbNome_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnClean_Click(object sender, EventArgs e)
         {
+            // clean filters and reset list box
+            listBox1.DataSource = results;
 
-        }
-
-        private void nmIdade_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbCurso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbEmail_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            cmbId.SelectedIndex = 0;
+            cmbNome.SelectedIndex = 0;
+            cmbCurso.SelectedIndex = 0;
+            cmbEmail.SelectedIndex = 0;
+            nmIdade.Value = 0;
         }
     }
 }
